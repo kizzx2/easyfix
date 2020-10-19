@@ -35,6 +35,8 @@ HeartBtInt=30
 ReconnectInterval=10"""
                 )
 
+    easyfix.enable_logging()
+
     app = easyfix.InitiatorApp.create('example.cfg')
     app.start()
 
@@ -64,6 +66,7 @@ ReconnectInterval=10"""
     t = fix.TransactTime()
     t.setString(easyfix.fix_utctimestamp(datetime.datetime.utcnow()))
     m.setField(t)
+    fix.Session.sendToTarget(m, app.session_id)
 
     # Some sort of main loop
     while m := app.incoming_messages.get():

@@ -1,9 +1,7 @@
-import io
 import datetime
 import re
 from queue import Queue
-from threading import Thread
-from typing import Dict, List, Optional, Text, Tuple
+from typing import Dict, List, Optional, Tuple
 
 import lxml
 import lxml.etree

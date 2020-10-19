@@ -63,4 +63,8 @@ while m := app.incoming_messages.get():
 
 ### Verbsoe logging
 
-You can get dump 
+You can get dump of FIX messages by enabling logging:
+
+```python
+easyfix.enable_logging()
+```
