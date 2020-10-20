@@ -25,6 +25,9 @@ import quickfix as fix
 import quickfix44 as fix44
 import easyfix
 
+# Enable verbose logging for troubleshooting
+# easyfix.enable_logging()
+
 # Finally, no need to create a whole class just to connect to a FIX server!
 app = easyfix.InitiatorApp.create('example.cfg')
 app.start()
