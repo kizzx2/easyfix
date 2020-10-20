@@ -17,7 +17,7 @@ pip install easyfix
 QuickFIX is not installed automatically, if you don't have it already:
 
 ```bash
-pip install quicfix
+pip install quickfix
 ```
 
 ## Features
