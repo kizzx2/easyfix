@@ -66,11 +66,11 @@ while m := app.incoming_messages.get():
     #
     # Example output:
     #
-    #   BeginString=FIX.4.4|BodyLength=736|MsgType=SECURITY_LIST|MsgSeqNum=1039|...
+    #   BeginString=FIX.4.4|BodyLength=736|MsgType=SECURITY_LIST(y)|MsgSeqNum=1039|...
     print(app.humanize(m))
 ```
 
-### Verbsoe logging
+### Verbose logging
 
 You can get dump of FIX messages by enabling logging:
 
