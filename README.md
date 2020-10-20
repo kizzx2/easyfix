@@ -14,6 +14,12 @@ This is mainly intended to experiment and explore with a FIX counterparty, or to
 pip install easyfix
 ```
 
+QuickFIX is not installed automatically, if you don't have it already:
+
+```bash
+pip install quicfix
+```
+
 ## Features
 
 - Minimalistic API for quick and no fuss FIX API exploration
