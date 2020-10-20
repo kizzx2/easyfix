@@ -200,6 +200,23 @@ class InitiatorApp(fix.Application):
                 m.setField(fix.Username(self.username))
                 m.setField(fix.Password(self.password))
 
+        if self.autofix_sequence_numbers:
+            text_tag = fix.Text().getTag()
+            is_seqnum_too_low = (
+                m.getHeader().getField(fix.MsgType().getTag()) == fix.MsgType_Logout
+                and m.isSetField(text_tag)
+                and m.getField(text_tag).startswith("MsgSeqNum too low")
+            )
+
+            if is_seqnum_too_low:
+                needed_seqnum = int(re.match("MsgSeqNum too low, expecting (\d+) but received (\d+)", m.getField(text_tag))[2])
+
+                self.log_message("toAdmin", m, session_id, levelize=False)
+                logger.warning(f"Resetting MsgSeqNum to {needed_seqnum} as needed. Wait for reconnect...")
+
+                self.session.setNextTargetMsgSeqNum(needed_seqnum)
+                return
+
         self.log_message("toAdmin", m, session_id)
         self.outgoing_messages.put(fix.Message(m))
 
@@ -229,6 +246,7 @@ class InitiatorApp(fix.Application):
         self.incoming_messages.put(fix.Message(m))
 
     def fromApp(self, m: fix.Message, session_id: fix.SessionID):
+
         self.log_message("fromApp", m, session_id)
         self.incoming_messages.put(fix.Message(m))
 
