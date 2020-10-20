@@ -55,6 +55,7 @@ m.setField(fix.SecurityReqID(str(uuid.uuid4())))
 m.setField(fix.SecurityListRequestType(fix.SecurityListRequestType_ALL_SECURITIES))
 fix.Session.sendToTarget(m, app.session_id)
 
+# Pull messagings from a Queue
 while m := app.incoming_messages.get():
     # Get field(s) by name
     #
