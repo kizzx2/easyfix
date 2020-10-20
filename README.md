@@ -1,12 +1,12 @@
 # easyfix
 
-Easy to use, boilerplate reducing FIX wrapper for [QuickFIX](http://www.quickfixengine.org/) (initiator only for now).
+Easy to use, low-boilerplate wrapper for [QuickFIX](http://www.quickfixengine.org/) (initiator only for now).
 
 ## Motivation
 
 Setting up a FIX application with [QuickFIX](http://www.quickfixengine.org/) is a lot of boilerplate. This is your easy fix.
 
-This is mainly intended to experiment and explore with a FIX counterparty. There is no effort made to make this suitable in a high performance setting.
+This is mainly intended to experiment and explore with a FIX counterparty, or to be used in test cases. There is no effort made to make this suitable in a high performance setting.
 
 ## Features
 
