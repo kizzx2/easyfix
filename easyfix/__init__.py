@@ -134,8 +134,8 @@ class InitiatorApp(fix.Application):
             tag_name = self.get_field_name(int(tag))
             k = f"{tag_name}({tag})" if debug else tag_name
 
-            if tag_name in self.enums:
-                value = self.enums[tag_name].get(value, value)
+            if tag_name in self.enums and value in self.enums[tag_name]:
+                value = self.enums[tag_name][value] + f"({value})"
 
             rv.append(f"{k}={value}")
 
@@ -155,8 +155,8 @@ class InitiatorApp(fix.Application):
             tag_name = self.get_field_name(int(tag))
             k = f"{tag_name}({tag})" if debug else tag_name
 
-            if tag_name in self.enums:
-                value = self.enums[tag_name].get(value, value)
+            if tag_name in self.enums and value in self.enums[tag_name]:
+                value = self.enums[tag_name][value] + f"({value})"
 
             rv[k] = value
 
