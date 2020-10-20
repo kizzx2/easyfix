@@ -8,6 +8,12 @@ Setting up a FIX application with [QuickFIX](http://www.quickfixengine.org/) is 
 
 This is mainly intended to experiment and explore with a FIX counterparty, or to be used in test cases. There is no effort made to make this suitable in a high performance setting.
 
+## Install
+
+```bash
+pip install easyfix
+```
+
 ## Features
 
 - Minimalistic API for quick and no fuss FIX API exploration
