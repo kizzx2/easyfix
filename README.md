@@ -12,7 +12,7 @@ This is mainly intended to experiment and explore with a FIX counterparty, or to
 
 - Minimalistic API for quick and no fuss FIX API exploration
 - Humanized output: converts enum fields to descriptions -- no more spending hours digging through FIX references
-- Automatically set your sequence number to the needed value if your counterparty tells you "MsgSeqNum too low"
+- Automatically set your sequence number to the needed value if your counterparty tells you "MsgSeqNum too low". Just restarting your app if your connection gets hung usually fixes it.
 
 ## Usage
 
