@@ -80,8 +80,8 @@ class InitiatorApp(fix.Application):
 
     socket_initiator: fix.SocketInitiator
 
-    outgoing_messages: "Queue[fix.Message]" = Queue()
-    incoming_messages: "Queue[fix.Message]" = Queue()
+    outgoing_messages: "Queue[fix.Message]"
+    incoming_messages: "Queue[fix.Message]"
     enums: Dict[str, Dict[str, str]]
 
     @property
@@ -97,6 +97,9 @@ class InitiatorApp(fix.Application):
         config = parse_config(config_filename)
 
         rv = cls()
+
+        rv.incoming_messages = Queue()
+        rv.outgoing_messages = Queue()
 
         rv.data_dict = fix.DataDictionary(config['DataDictionary'])
         rv.enums = parse_enums(config['DataDictionary'])
